@@ -23,4 +23,3 @@ Users can:
 ### Designer 
 - Towsif
 - Sadaf
-- Anas
