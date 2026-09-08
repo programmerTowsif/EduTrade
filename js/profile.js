@@ -14,6 +14,6 @@ profileName.textContent = currentUser.fullName;
 const accountName = document.getElementById("accountName");
 accountName.textContent = currentUser.studentId;
 
- document.getElementById("accountUniversity").textContent = currentUser.university;
- document.getElementById("accountPhone").textContent = currentUser.phone;
-  document.getElementById("accountPhone").textContent = currentUser.phone;
+document.getElementById("accountUniversity").textContent = currentUser.university;
+document.getElementById("accountPhone").textContent = currentUser.phone;
+document.getElementById("accountPhone").textContent = currentUser.phone;
