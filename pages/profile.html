@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Profile | EduTrade</title>
@@ -12,14 +11,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-
 <body class="min-h-screen bg-[#F5F5F3] text-gray-800">
 
-
     <!-- ================= NAVBAR ================= -->
-  
-   
-<div id="navbar-placeholder"></div>
+
+    <div id="navbar-placeholder"></div>
+
 
     <!-- ================= MAIN ================= -->
 
@@ -30,11 +27,8 @@
 
         <section class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
 
-
             <!-- Cover -->
-
             <div class="h-32 bg-gradient-to-r from-green-700 to-emerald-500">
-
             </div>
 
 
@@ -42,61 +36,36 @@
 
             <div class="relative px-6 pb-6">
 
-
                 <!-- Profile Image -->
 
-                <div
-                   >
+                <div class="relative">
 
-                     <img  class="absolute -top-16 flex h-32 w-32 items-center justify-center rounded-full border-4 border-white bg-green-100 text-5xl" src="https://imgs.search.brave.com/X-y0sFRE09BBkbzwCpXvTxZ29wJ9ukkMmB7UFnVXqNU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtdmVjdG9y/L2NhcnRvb24tcGVv/cGxlLWxvb2tpbmct/dXBfMjMtMjE0ODk3/MjI2NC5qcGc_c2Vt/dD1haXNfdGVzdF9i/Jnc9NzQwJnE9ODA" alt="">
-
-                </div>
-
-
-                <!-- Edit Button -->
-
-                <div class="flex justify-end pt-5">
-
-                    <button id="editProfileBtn"
-                        class="rounded-lg border border-green-700 px-5 py-2 font-medium text-green-700 transition hover:bg-green-50">
-
-                        Edit Profile
-
-                    </button>
+                    <img id="profileImage" src="https://via.placeholder.com/150" alt="Profile"
+                        class="absolute -top-16 h-32 w-32 rounded-full border-4 border-white bg-green-100 object-cover">
 
                 </div>
 
 
                 <!-- User Details -->
 
-                <div class="mt-8">
+                <div class="pt-20">
 
-                    <h1 id="profileName"
-                        class="text-2xl font-bold md:text-3xl">
-
+                    <h1 id="profileName" class="text-2xl font-bold md:text-3xl">
                         Student Name
-
                     </h1>
 
 
-                    <p id="profileUniversity"
-                        class="mt-1 text-gray-500">
-
+                    <p id="profileUniversity" class="mt-1 text-gray-500">
                         Premier University
-
                     </p>
 
 
-                    <p id="profileDepartment"
-                        class="text-sm text-gray-500">
-
+                    <p id="profileDepartment" class="text-sm text-gray-500">
                         Department
-
                     </p>
 
 
-                    <div
-                        class="mt-5 flex flex-wrap gap-4 text-sm text-gray-600">
+                    <div class="mt-5 flex flex-wrap gap-4 text-sm text-gray-600">
 
                         <span>
                             📧
@@ -115,9 +84,7 @@
 
                     </div>
 
-
                 </div>
-
 
             </div>
 
@@ -127,88 +94,67 @@
 
         <!-- ================= STATISTICS ================= -->
 
-        <section
-            class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <section class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
 
             <!-- Total Posts -->
 
-            <div
-                class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
 
                 <p class="text-sm text-gray-500">
                     Total Posts
                 </p>
 
-                <h2 id="totalPosts"
-                    class="mt-2 text-3xl font-bold text-green-700">
-
+                <h2 id="totalPosts" class="mt-2 text-3xl font-bold text-green-700">
                     0
-
                 </h2>
 
             </div>
 
 
-
             <!-- Sell Posts -->
 
-            <div
-                class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
 
                 <p class="text-sm text-gray-500">
                     Sell Posts
                 </p>
 
-                <h2 id="sellPosts"
-                    class="mt-2 text-3xl font-bold text-green-700">
-
+                <h2 id="sellPosts" class="mt-2 text-3xl font-bold text-green-700">
                     0
-
                 </h2>
 
             </div>
 
 
-
             <!-- Lost Posts -->
 
-            <div
-                class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
 
                 <p class="text-sm text-gray-500">
                     Lost Posts
                 </p>
 
-                <h2 id="lostPosts"
-                    class="mt-2 text-3xl font-bold text-red-500">
-
+                <h2 id="lostPosts" class="mt-2 text-3xl font-bold text-red-500">
                     0
-
                 </h2>
 
             </div>
 
 
-
             <!-- Found Posts -->
 
-            <div
-                class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+            <div class="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
 
                 <p class="text-sm text-gray-500">
                     Found Posts
                 </p>
 
-                <h2 id="foundPosts"
-                    class="mt-2 text-3xl font-bold text-blue-500">
-
+                <h2 id="foundPosts" class="mt-2 text-3xl font-bold text-blue-500">
                     0
-
                 </h2>
 
             </div>
-
 
         </section>
 
@@ -216,45 +162,40 @@
 
         <!-- ================= ACCOUNT INFORMATION ================= -->
 
-        <section
-            class="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+        <section class="mt-8 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
 
-            <div class="flex items-center justify-between">
+            <div>
 
-                <div>
+                <h2 class="text-xl font-bold">
+                    Account Information
+                </h2>
 
-                    <h2 class="text-xl font-bold">
-                        Account Information
-                    </h2>
-
-                    <p class="mt-1 text-sm text-gray-500">
-                        Your student account details.
-                    </p>
-
-                </div>
+                <p class="mt-1 text-sm text-gray-500">
+                    Your registered student account details.
+                </p>
 
             </div>
 
 
-            <div
-                class="mt-6 grid gap-6 md:grid-cols-2">
+            <div class="mt-6 grid gap-6 md:grid-cols-2">
 
+
+                <!-- Full Name -->
 
                 <div>
 
-                    <p id="profileName" class="text-sm text-gray-500">
+                    <p class="text-sm text-gray-500">
                         Full Name
                     </p>
 
-                    <p id="accountName"
-                        class="mt-1 font-semibold">
-
+                    <p id="accountName" class="mt-1 font-semibold">
                         Student Name
-
                     </p>
 
                 </div>
 
+
+                <!-- Email -->
 
                 <div>
 
@@ -262,15 +203,29 @@
                         Email Address
                     </p>
 
-                    <p id="accountEmail"
-                        class="mt-1 font-semibold">
-
+                    <p id="accountEmail" class="mt-1 font-semibold">
                         student@email.com
-
                     </p>
 
                 </div>
 
+
+                <!-- Student ID -->
+
+                <div>
+
+                    <p class="text-sm text-gray-500">
+                        Student ID
+                    </p>
+
+                    <p id="accountStudentId" class="mt-1 font-semibold">
+                        00000000
+                    </p>
+
+                </div>
+
+
+                <!-- Phone -->
 
                 <div>
 
@@ -278,15 +233,14 @@
                         Phone Number
                     </p>
 
-                    <p id="accountPhone"
-                        class="mt-1 font-semibold">
-
+                    <p id="accountPhone" class="mt-1 font-semibold">
                         01XXXXXXXXX
-
                     </p>
 
                 </div>
 
+
+                <!-- University -->
 
                 <div>
 
@@ -294,15 +248,14 @@
                         University
                     </p>
 
-                    <p id="accountUniversity"
-                        class="mt-1 font-semibold">
-
+                    <p id="accountUniversity" class="mt-1 font-semibold">
                         Premier University
-
                     </p>
 
                 </div>
 
+
+                <!-- Department -->
 
                 <div>
 
@@ -310,11 +263,38 @@
                         Department
                     </p>
 
-                    <p id="accountDepartment"
-                        class="mt-1 font-semibold">
+                    <p id="accountDepartment" class="mt-1 font-semibold">
+                        Computer Science & Engineering
+                    </p>
 
-                        Computer Science
+                </div>
 
+
+                <!-- Account Type - Static -->
+
+                <div>
+
+                    <p class="text-sm text-gray-500">
+                        Account Type
+                    </p>
+
+                    <p class="mt-1 font-semibold">
+                        Student
+                    </p>
+
+                </div>
+
+
+                <!-- Member Since - Dynamic -->
+
+                <div>
+
+                    <p class="text-sm text-gray-500">
+                        Member Since
+                    </p>
+
+                    <p id="accountCreatedAt" class="mt-1 font-semibold">
+                        2026
                     </p>
 
                 </div>
@@ -328,7 +308,6 @@
         <!-- ================= RECENT POSTS ================= -->
 
         <section class="mt-8">
-
 
             <!-- Heading -->
 
@@ -347,176 +326,28 @@
                 </div>
 
 
-                <a href="my-posts.html"
-                    class="font-medium text-green-700 hover:text-green-800">
-
+                <a href="my-posts.html" class="font-medium text-green-700 hover:text-green-800">
                     View All →
-
                 </a>
 
             </div>
 
 
-
             <!-- Posts Container -->
 
-            <div id="recentPosts"
-                class="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-
+            <div id="recentPosts" class="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
 
                 <!-- JavaScript will render posts here -->
 
-
             </div>
 
-
         </section>
-
 
     </main>
 
 
 
-    <!-- ================= EDIT PROFILE MODAL ================= -->
-
-    <div id="editModal"
-        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 px-4">
-
-
-        <div
-            class="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-white p-6">
-
-
-            <!-- Modal Header -->
-
-            <div class="flex items-center justify-between">
-
-                <h2 class="text-xl font-bold">
-                    Edit Profile
-                </h2>
-
-
-                <button id="closeModal"
-                    class="text-2xl text-gray-500 hover:text-red-500">
-
-                    ×
-
-                </button>
-
-            </div>
-
-
-
-            <!-- Edit Form -->
-
-            <form id="editProfileForm"
-                class="mt-6 space-y-5">
-
-
-                <div>
-
-                    <label class="mb-2 block text-sm font-medium">
-                        Full Name
-                    </label>
-
-                    <input id="editName"
-                        type="text"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600">
-
-                </div>
-
-
-
-                <div>
-
-                    <label class="mb-2 block text-sm font-medium">
-                        Email
-                    </label>
-
-                    <input id="editEmail"
-                        type="email"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600">
-
-                </div>
-
-
-
-                <div>
-
-                    <label class="mb-2 block text-sm font-medium">
-                        Phone
-                    </label>
-
-                    <input id="editPhone"
-                        type="text"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600">
-
-                </div>
-
-
-
-                <div>
-
-                    <label class="mb-2 block text-sm font-medium">
-                        University
-                    </label>
-
-                    <input id="editUniversity"
-                        type="text"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600">
-
-                </div>
-
-
-
-                <div>
-
-                    <label class="mb-2 block text-sm font-medium">
-                        Department
-                    </label>
-
-                    <input id="editDepartment"
-                        type="text"
-                        class="w-full rounded-lg border border-gray-300 px-4 py-3 outline-none focus:border-green-600">
-
-                </div>
-
-
-
-                <!-- Buttons -->
-
-                <div class="flex justify-end gap-3 pt-3">
-
-                    <button id="cancelEdit"
-                        type="button"
-                        class="rounded-lg border border-gray-300 px-5 py-2 hover:bg-gray-100">
-
-                        Cancel
-
-                    </button>
-
-
-                    <button type="submit"
-                        class="rounded-lg bg-green-700 px-5 py-2 font-medium text-white hover:bg-green-800">
-
-                        Save Changes
-
-                    </button>
-
-                </div>
-
-
-            </form>
-
-
-        </div>
-
-
-    </div>
-
-
-
-    <!-- JavaScript -->
+    <!-- ================= JAVASCRIPT ================= -->
 
     <script src="../js/profile.js"></script>
     <script src="../js/navbar.js"></script>

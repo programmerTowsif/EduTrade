@@ -1,11 +1,11 @@
 const registerForm = document.getElementById("registerForm");
 
-registerForm.addEventListener("submit", function(event){
+registerForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
     // Input values
     const fullName = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("email").value.trim();
+    const email = document.getElementById("email").value.trim().toLowerCase();
     const studentId = document.getElementById("studentId").value.trim();
     const phone = document.getElementById("phone").value.trim();
     const university = document.getElementById("university").value.trim();
@@ -13,50 +13,69 @@ registerForm.addEventListener("submit", function(event){
     const password = document.getElementById("password").value.trim();
     const confirmPassword = document.getElementById("confirmPassword").value.trim();
     const terms = document.getElementById("terms").checked;
-
-    if (!fullName || !email || !studentId || !phone || !university || !password || !confirmPassword || !terms) {
+    const profileImageInput =
+    document.getElementById("profileImage");
+    // Required field validation
+    if (
+        !fullName ||
+        !email ||
+        !studentId ||
+        !phone ||
+        !university ||
+        !password ||
+        !confirmPassword ||
+        !terms 
+        
+    ) {
         alert("Please fill up all required fields");
         return;
     }
 
+    // Password validation
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
     }
 
-    // User Object - posts array যুক্ত করা হয়েছে
-    const user = {
-      id: Date.now(),
-      fullName,
-      email,
-      studentId,
-      phone,
-      university,
-      department,
-      password,
-      posts: [], // নতুন রেজিস্টার্ড ইউজারের পোস্ট রাখার জন্য খালি অ্যারে
-      createdAt: new Date().toLocaleString()
-    };
-
-    // Get existing users
+    // Get existing users from LocalStorage
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
-    const emailExists = users.some(function(existingUser){
+    // Check if email already exists
+    const emailExists = users.some(function(existingUser) {
         return existingUser.email === email;
     });
 
-    if(emailExists){
+    if (emailExists) {
         alert("This email is already registered");
         return;
     }
 
+    // Create new user
+    const user = {
+        id: Date.now(),
+        fullName,
+        email,
+        studentId,
+        phone,
+        university,
+        department,
+        password,
+        posts: [],
+        profileImageInput,
+        createdAt: new Date().toLocaleString()
+    };
+
+    // Add new user to users array
     users.push(user);
 
-    // Save to LocalStorage
+    // Save updated users array to LocalStorage
     localStorage.setItem("users", JSON.stringify(users));
-    localStorage.setItem("currentUser", JSON.stringify(user));
-    
+
     alert("Account created successfully!");
+
+    // Clear form
     registerForm.reset();
+
+    // Go to login page
     window.location.href = "login.html";
 });
