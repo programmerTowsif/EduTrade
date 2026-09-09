@@ -22,4 +22,8 @@ function renderOrders() {
 }
 [search, category, sort].forEach((control) => control.addEventListener('input', renderOrders));
 grid.addEventListener('click', (event) => { if (event.target.matches('.offer-button')) { event.target.textContent = 'Offer sent ✓'; event.target.disabled = true; event.target.classList.add('bg-blue-600', 'text-white'); } });
+<<<<<<< HEAD
 renderOrders();
+=======
+renderOrders();
+>>>>>>> main
