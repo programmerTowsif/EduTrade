@@ -1,87 +1,188 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const createPostForm = document.getElementById("createPostForm");
 
-    if (!createPostForm) return;
+    const form = document.getElementById("createPostForm");
 
-    createPostForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+    if (!form) {
+        return;
+    }
 
-        // 1. Check logged in user
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const allPosts = JSON.parse(localStorage.getItem("posts")) || [];
+    form.addEventListener("submit", (event) => {
+
+        event.preventDefault();
+
+        // =====================================
+        // 1. CURRENT USER
+        // =====================================
+
+        const currentUser = JSON.parse(
+            localStorage.getItem("currentUser")
+        );
 
         if (!currentUser) {
-            alert("Please login first to create a post!");
+            alert("Please login first!");
             window.location.href = "login.html";
             return;
         }
 
-        // 2. Get form values
-        const title = document.getElementById("title").value.trim();
-        const listingType = document.getElementById("listingType").value;
-        const category = document.getElementById("category").value;
-        const price = document.getElementById("price").value;
-        const condition = document.getElementById("condition").value;
-        const contact = document.getElementById("contact").value.trim();
-        const location = document.getElementById("location").value.trim();
-        const description = document.getElementById("description").value.trim();
-        const imageInput = document.getElementById("productImage");
+        // =====================================
+        // 2. FORM VALUES
+        // =====================================
 
-        // 3. Handle Image Read & Save Function
-        if (imageInput && imageInput.files.length > 0) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const imageBase64 = e.target.result;
-                savePost(imageBase64);
-            };
-            reader.readAsDataURL(imageInput.files[0]);
-        } else {
-            savePost(""); // Image ছাড়া পোস্ট
+        const title =
+            document.getElementById("title").value.trim();
+
+        const listingType =
+            document.getElementById("listingType").value;
+
+        const category =
+            document.getElementById("category").value;
+
+        const price =
+            document.getElementById("price").value;
+
+        const condition =
+            document.getElementById("condition").value;
+
+        const contact =
+            document.getElementById("contact").value.trim();
+
+        const location =
+            document.getElementById("location").value.trim();
+
+        const description =
+            document.getElementById("description").value.trim();
+
+        // =====================================
+        // 3. VALIDATION
+        // =====================================
+
+        if (
+            !title ||
+            !listingType ||
+            !category ||
+            !condition ||
+            !contact ||
+            !location ||
+            !description
+        ) {
+            alert("Please fill up all required fields!");
+            return;
         }
 
-        // Save Function
-        function savePost(imageUrl) {
-            // Create New Post Object
-            const newPost = {
-                postId: Date.now(),
-                userId: currentUser.id,
-                authorName: currentUser.fullName || "Anonymous",
-                title,
-                listingType,
-                category,
-                price: Number(price),
-                condition,
-                contact,
-                location,
-                description,
-                image: imageUrl,
-                createdAt: new Date().toLocaleString()
-            };
+        // =====================================
+        // 4. GET EXISTING POSTS
+        // =====================================
 
-            // A. Current User-এর posts array তে রাখা
-            if (!currentUser.posts) {
-                currentUser.posts = [];
-            }
-            currentUser.posts.push(newPost);
+        let posts = JSON.parse(
+            localStorage.getItem("posts")
+        ) || [];
 
-            // B. Main Users List-এ update করা
-            const userIndex = users.findIndex(u => u.id === currentUser.id);
-            if (userIndex !== -1) {
-                users[userIndex] = currentUser;
-            }
+        // =====================================
+        // 5. DEFAULT IMAGE
+        // =====================================
 
-            // C. Global Posts List-এ রাখা (Marketplace-এ দেখানোর জন্য)
-            allPosts.push(newPost);
+        const defaultImage =
+            "../images/default-product.jpg";
 
-            // LocalStorage Sync
-            localStorage.setItem("currentUser", JSON.stringify(currentUser));
-            localStorage.setItem("users", JSON.stringify(users));
-            localStorage.setItem("posts", JSON.stringify(allPosts));
+        // =====================================
+        // 6. CREATE NEW POST
+        // =====================================
 
-            alert("Item published successfully!");
-            createPostForm.reset();
-            window.location.href = "marketplace.html";
+        const newPost = {
+
+            postId: Date.now(),
+
+            userId: currentUser.id,
+
+            authorName: currentUser.fullName,
+
+            title: title,
+
+            listingType: listingType,
+
+            category: category,
+
+            price: Number(price) || 0,
+
+            condition: condition,
+
+            contact: contact,
+
+            location: location,
+
+            description: description,
+
+            image: defaultImage,
+
+            createdAt: new Date().toLocaleString()
+        };
+
+        // =====================================
+        // 7. SAVE TO POSTS
+        // =====================================
+
+        posts.push(newPost);
+
+        localStorage.setItem(
+            "posts",
+            JSON.stringify(posts)
+        );
+
+        // =====================================
+        // 8. UPDATE CURRENT USER
+        // =====================================
+
+        if (!Array.isArray(currentUser.posts)) {
+            currentUser.posts = [];
         }
+
+        currentUser.posts.push(newPost);
+
+        localStorage.setItem(
+            "currentUser",
+            JSON.stringify(currentUser)
+        );
+
+        // =====================================
+        // 9. UPDATE USERS
+        // =====================================
+
+        const users = JSON.parse(
+            localStorage.getItem("users")
+        ) || [];
+
+        const userIndex = users.findIndex(
+            user => user.id === currentUser.id
+        );
+
+        if (userIndex !== -1) {
+
+            if (!Array.isArray(users[userIndex].posts)) {
+                users[userIndex].posts = [];
+            }
+
+            users[userIndex].posts.push(newPost);
+
+            localStorage.setItem(
+                "users",
+                JSON.stringify(users)
+            );
+        }
+
+        // =====================================
+        // 10. SUCCESS
+        // =====================================
+
+        alert("Post created successfully!");
+
+        form.reset();
+
+        // =====================================
+        // 11. GO TO MY POSTS
+        // =====================================
+
+        window.location.href = "my-posts.html";
+
     });
+
 });
