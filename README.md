@@ -1,26 +1,144 @@
-#  EduTrade
+# 🎓 EduTrade
 
-##  Educational Buy, Sell & Rent Marketplace
+### Student Marketplace Web Application
 
-EduTrade is a web-based marketplace designed especially for students. The platform allows students to **buy, sell, and rent educational resources** such as books, notes, PDFs, calculators, electronic components, lab equipment, and other academic materials.
+> **Buy • Sell • Rent • Lost • Found — Everything Students Need, In One Place.**
 
-The main goal of EduTrade is to create a simple platform where students can reuse educational resources instead of buying everything new.
+EduTrade is a student-focused marketplace designed for university students to **buy, sell, rent, and report lost or found items** within their student community.
+
+---
+
+## 🚀 Features
+
+* 🛒 Student Marketplace
+* 🔎 Search & Filter Posts
+* 📚 Category-based Browsing
+* 💰 Buy & Sell Items
+* 🔄 Rent Items
+* 🔴 Lost & 🟣 Found Posts
+* 👤 Student Registration & Login
+* 📝 Create, Edit & Delete Posts
+* 📋 My Posts
+* 👀 Post Details
+* 🏠 Latest Posts on Home Page
 
 ---
 
-#  Project Features
+## 🛠️ Technologies
 
-##  User Management
-
-Users can:
-
-- Create and manage their profile
-- Add personal information
-- Update profile information
-- View their posted items
+* **HTML5**
+* **Tailwind CSS**
+* **JavaScript**
+* **LocalStorage**
+* **Git & GitHub**
 
 ---
-### Designer 
-- Towsif
-- Sadaf
-- Anas
+
+## 📁 Project Structure
+
+```text
+EduTrade/
+│
+├── images/
+│   └── default-product.jpg
+│
+├── pages/
+│   ├── home.html
+│   ├── login.html
+│   ├── register.html
+│   ├── profile.html
+│   ├── marketplace.html
+│   ├── create-post.html
+│   ├── my-posts.html
+│   └── post-details.html
+│
+├── js/
+│   ├── navbar.js
+│   ├── login.js
+│   ├── register.js
+│   ├── profile.js
+│   ├── marketplace.js
+│   ├── create-post.js
+│   ├── my-posts.js
+│   ├── post-details.js
+│   └── home.js
+│
+└── README.md
+```
+
+---
+
+## 🔄 How It Works
+
+```text
+Register
+   ↓
+Login
+   ↓
+Create Post
+   ↓
+My Posts
+   ↓
+Marketplace
+   ↓
+Search / Filter
+   ↓
+View Post Details
+```
+
+All posts are stored in **LocalStorage**, and the Marketplace displays posts from all registered students.
+
+---
+
+## 🎯 Project Goal
+
+EduTrade aims to provide a **simple and dedicated marketplace for university students**, reducing the need to search through different social media groups or personal contacts.
+
+---
+
+## 🔮 Future Scope
+
+The project can later be extended with:
+
+* Real Database
+* Backend & REST API
+* Secure Authentication
+* Real Image Upload
+* Wishlist
+* Messaging
+* Buy/Rent Transaction System
+* Notifications
+* Admin Panel
+
+---
+
+## 👨‍🏫 Project Supervisor
+
+**Lecturer Name**
+Lecturer, Department of CSE
+Premier University
+
+---
+
+## 👨‍💻 Developer Team
+
+| Member     | Responsibility               |
+| ---------- | ---------------------------- |
+| **Towsif** | Frontend & UI                |
+| **Anas**   | JavaScript & Data Management |
+| **Sadaf**  | UI / Design                  |
+
+---
+
+## 🎓 Academic Project
+
+**Department:** Computer Science & Engineering
+**University:** Premier University, Chittagong
+
+---
+
+### ❤️ EduTrade
+
+**Everything Students Need, In One Place.**
+
+Built with ❤️ by CSE Students.
