@@ -8,8 +8,11 @@ document.addEventListener("DOMContentLoaded", () => {
         Number(localStorage.getItem("selectedPostId"));
 
     if (!selectedPostId) {
+
         alert("Post not found!");
-        window.location.href = "marketplace.html";
+
+        window.location.href = "posts.html";
+
         return;
     }
 
@@ -21,19 +24,26 @@ document.addEventListener("DOMContentLoaded", () => {
     const posts =
         JSON.parse(localStorage.getItem("posts")) || [];
 
+    console.log("All Posts:", posts);
+
 
     // =====================================
     // 3. FIND SELECTED POST
     // =====================================
 
     const post = posts.find(
-        post => post.postId === selectedPostId
+        post => Number(post.postId) === selectedPostId
     );
+
+    console.log("Selected Post:", post);
 
 
     if (!post) {
+
         alert("Post not found!");
-        window.location.href = "marketplace.html";
+
+        window.location.href = "posts.html";
+
         return;
     }
 
@@ -63,9 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const postLocation =
         document.getElementById("postLocation");
 
-    const postContact =
-        document.getElementById("postContact");
-
     const postDescription =
         document.getElementById("postDescription");
 
@@ -75,51 +82,60 @@ document.addEventListener("DOMContentLoaded", () => {
     const postDate =
         document.getElementById("postDate");
 
+    const sellerContact =
+        document.getElementById("sellerContact");
+
+    const pickupLocation =
+        document.getElementById("pickupLocation");
+
 
     // =====================================
-    // 5. SET POST IMAGE
+    // 5. SET IMAGE
     // =====================================
 
     postImage.src =
         post.image || "../images/default-product.jpg";
 
-    postImage.alt = post.title;
+    postImage.alt =
+        post.title || "Product";
 
 
     // =====================================
-    // 6. SET BASIC INFORMATION
+    // 6. BASIC INFORMATION
     // =====================================
 
     postTitle.textContent =
-        post.title;
-
-    postType.textContent =
-        post.listingType;
+        post.title || "No title";
 
     postCategory.textContent =
-        post.category;
+        post.category || "Other";
 
     postCondition.textContent =
-        post.condition;
+        post.condition || "Unknown";
 
     postLocation.textContent =
-        post.location;
-
-    postContact.textContent =
-        post.contact;
+        post.location || "Not specified";
 
     postDescription.textContent =
-        post.description;
+        post.description || "No description available.";
 
     postAuthor.textContent =
-        post.authorName;
+        post.authorName || "Unknown Seller";
 
     postDate.textContent =
-        post.createdAt;
+        post.createdAt || "Unknown";
 
 
     // =====================================
-    // 7. PRICE
+    // 7. LISTING TYPE
+    // =====================================
+
+    postType.textContent =
+        post.listingType || "Unknown";
+
+
+    // =====================================
+    // 8. PRICE
     // =====================================
 
     if (
@@ -134,40 +150,96 @@ document.addEventListener("DOMContentLoaded", () => {
 
         postPrice.textContent =
             "No Price";
-
     }
 
 
     // =====================================
-    // 8. BADGE COLOR
+    // 9. BADGE COLOR
     // =====================================
 
     if (post.listingType === "Sell") {
 
         postType.className =
-            "inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-700";
+            "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-700";
 
     }
 
     else if (post.listingType === "Rent") {
 
         postType.className =
-            "inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700";
+            "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700";
 
     }
 
     else if (post.listingType === "Lost") {
 
         postType.className =
-            "inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-red-100 text-red-700";
+            "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-red-100 text-red-700";
 
     }
 
     else if (post.listingType === "Found") {
 
         postType.className =
-            "inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-100 text-purple-700";
+            "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-100 text-purple-700";
 
     }
+
+
+    // =====================================
+    // 10. PICKUP LOCATION
+    // =====================================
+
+    pickupLocation.textContent =
+        `📍 ${post.location || "Location not specified"}`;
+
+
+    // =====================================
+    // 11. SELLER CONTACT
+    // =====================================
+
+    sellerContact.textContent =
+        post.contact || "Contact information not available";
+
+
+    // =====================================
+    // 12. CONTACT SELLER BUTTON
+    // =====================================
+
+    const contactSeller =
+        document.getElementById("contact-seller");
+
+    const contactNote =
+        document.getElementById("contact-note");
+
+
+    contactSeller.addEventListener("click", () => {
+
+        contactNote.classList.remove("hidden");
+
+    });
+
+
+    // =====================================
+    // 13. SAVE POST
+    // =====================================
+
+    const savePost =
+        document.getElementById("save-post");
+
+
+    savePost.addEventListener("click", () => {
+
+        if (savePost.textContent === "♡") {
+
+            savePost.textContent = "♥";
+
+        } else {
+
+            savePost.textContent = "♡";
+
+        }
+
+    });
 
 });
