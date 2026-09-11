@@ -1,3 +1,4 @@
+```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
     // =====================================
@@ -8,11 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Number(localStorage.getItem("selectedPostId"));
 
     if (!selectedPostId) {
-
         alert("Post not found!");
-
         window.location.href = "posts.html";
-
         return;
     }
 
@@ -39,11 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     if (!post) {
-
         alert("Post not found!");
-
         window.location.href = "posts.html";
-
         return;
     }
 
@@ -87,6 +82,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const pickupLocation =
         document.getElementById("pickupLocation");
+
+    const contactSeller =
+        document.getElementById("contact-seller");
+
+    const contactNote =
+        document.getElementById("contact-note");
+
+    const savePost =
+        document.getElementById("save-post");
 
 
     // =====================================
@@ -162,27 +166,20 @@ document.addEventListener("DOMContentLoaded", () => {
         postType.className =
             "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-green-100 text-green-700";
 
-    }
-
-    else if (post.listingType === "Rent") {
+    } else if (post.listingType === "Rent") {
 
         postType.className =
             "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-blue-100 text-blue-700";
 
-    }
-
-    else if (post.listingType === "Lost") {
+    } else if (post.listingType === "Lost") {
 
         postType.className =
             "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-red-100 text-red-700";
 
-    }
-
-    else if (post.listingType === "Found") {
+    } else if (post.listingType === "Found") {
 
         postType.className =
             "absolute left-5 top-5 inline-block px-4 py-1.5 rounded-full text-sm font-semibold bg-purple-100 text-purple-700";
-
     }
 
 
@@ -206,14 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // 12. CONTACT SELLER BUTTON
     // =====================================
 
-    const contactSeller =
-        document.getElementById("contact-seller");
-
-    const contactNote =
-        document.getElementById("contact-note");
-
-
     contactSeller.addEventListener("click", () => {
+
+        contactSeller.textContent = "Request sent ✓";
+
+        contactSeller.disabled = true;
+
+        contactSeller.classList.add("bg-emerald-600");
 
         contactNote.classList.remove("hidden");
 
@@ -224,22 +220,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // 13. SAVE POST
     // =====================================
 
-    const savePost =
-        document.getElementById("save-post");
-
-
     savePost.addEventListener("click", () => {
 
-        if (savePost.textContent === "♡") {
+        const saved =
+            savePost.textContent === "♥";
 
-            savePost.textContent = "♥";
+        savePost.textContent =
+            saved ? "♡" : "♥";
 
-        } else {
-
-            savePost.textContent = "♡";
-
-        }
+        savePost.classList.toggle(
+            "text-rose-500",
+            !saved
+        );
 
     });
 
 });
+```
+
