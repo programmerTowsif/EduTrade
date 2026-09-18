@@ -1,3 +1,68 @@
+ 
+document.addEventListener("DOMContentLoaded", () => {
+  const id = String(localStorage.getItem("selectedPostId") || "");
+  const post = (JSON.parse(localStorage.getItem("posts")) || []).find(
+    (item) => String(item.postId) === id,
+  );
+  if (!post) {
+    alert("Post not found!");
+    window.location.href = "marketplace.html";
+    return;
+  }
+  const text = (elementId, value) => {
+    const element = document.getElementById(elementId);
+    if (element) element.textContent = value;
+  };
+  const image = document.getElementById("postImage");
+  image.src = post.image || "../images/default-product.jpg";
+  image.alt = post.title || "Product";
+  text("postTitle", post.title || "No title");
+  text("postType", post.listingType || "Unknown");
+  text("postCategory", post.category || "Other");
+  text("postPrice", `৳${post.price || 0}`);
+  text("postCondition", post.condition || "Unknown");
+  text("postLocation", post.location || "Not specified");
+  text("postDescription", post.description || "No description available.");
+  text("postAuthor", post.authorName || "Unknown seller");
+  text("postDate", post.createdAt || "Unknown");
+  text("sellerContact", post.contact || "Contact information not available");
+  text("pickupLocation", `📍 ${post.location || "Location not specified"}`);
+  const type = document.getElementById("postType");
+  type.className =
+    "absolute left-5 top-5 rounded-full px-4 py-1.5 text-sm font-semibold " +
+    ({
+      Sell: "bg-green-100 text-green-700",
+      Rent: "bg-blue-100 text-blue-700",
+      Lost: "bg-red-100 text-red-700",
+      Found: "bg-purple-100 text-purple-700",
+    }[post.listingType] || "bg-gray-100 text-gray-700");
+  document
+    .getElementById("contact-seller")
+    .addEventListener("click", (event) => {
+      event.target.textContent = "Request sent ✓";
+      event.target.disabled = true;
+      document.getElementById("contact-note").classList.remove("hidden");
+    });
+  // Store complete saved posts so Wishlist can render without another lookup.
+  const button = document.getElementById("save-post");
+  const renderSaved = () => {
+    const saved = (JSON.parse(localStorage.getItem("wishlist")) || []).some(
+      (item) => String(item.postId) === id,
+    );
+    button.textContent = saved ? "♥" : "♡";
+    button.classList.toggle("text-rose-500", saved);
+  };
+  button.addEventListener("click", () => {
+    const wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+    const index = wishlist.findIndex((item) => String(item.postId) === id);
+    if (index === -1) wishlist.push(post);
+    else wishlist.splice(index, 1);
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+    renderSaved();
+  });
+  renderSaved();
+});
+=======
 ```javascript
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -236,5 +301,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-```
-
+ 

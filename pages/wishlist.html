@@ -1,21 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>EduTrade</title>
- 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wishlist | EduTrade</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-
-<body>
-    <div data-navbar></div>
-
-     
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-800">
+    <div id="navbar-placeholder"></div>
+    <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+      <h1 class="text-3xl font-bold">My Wishlist</h1>
+      <p class="mt-2 text-gray-500">Posts you saved for later.</p>
+      <div
+        id="wishlistGrid"
+        class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      ></div>
+      <section
+        id="wishlistEmpty"
+        class="hidden mt-8 rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center"
+      >
+        <div class="text-5xl">♡</div>
+        <h2 class="mt-4 text-xl font-semibold">Your wishlist is empty</h2>
+        <p class="mt-2 text-gray-500">
+          Save posts from their details page to revisit them here.
+        </p>
+      </section>
+    </main>
     <script src="../js/navbar.js"></script>
-
-</body>
+    <script src="../js/wishlist.js"></script>
+  </body>
 </html>

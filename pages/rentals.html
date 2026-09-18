@@ -1,21 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>EduTrade</title>
- 
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rentals | EduTrade</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-</head>
-
-<body>
-    <div data-navbar></div>
-
-     
+  </head>
+  <body class="min-h-screen bg-gray-50 text-gray-800">
+    <div id="navbar-placeholder"></div>
+    <main class="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold">Rentals</h1>
+        <p class="mt-2 text-gray-500">
+          Find useful items available to rent from fellow students.
+        </p>
+      </header>
+      <!-- Search is intentionally scoped to rental listings only. --><input
+        id="rentalSearch"
+        type="search"
+        placeholder="Search rentals by title, description, category, or location"
+        class="mb-8 w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+      />
+      <div
+        id="rentalGrid"
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      ></div>
+      <section
+        id="rentalEmpty"
+        class="hidden rounded-2xl border border-dashed border-gray-300 bg-white p-12 text-center"
+      >
+        <div class="text-5xl">🏠</div>
+        <h2 class="mt-4 text-xl font-semibold">No rentals found</h2>
+        <p class="mt-2 text-gray-500">
+          Try a different search, or check back when students add rental
+          listings.
+        </p>
+      </section>
+    </main>
     <script src="../js/navbar.js"></script>
-
-</body>
+    <script src="../js/rentals.js"></script>
+  </body>
 </html>
